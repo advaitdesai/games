@@ -12,6 +12,12 @@ module Chess
       valid_move?(horizontal_position(position),vertical_position(position))
     end
 
+    def neighbour_position(current_position,horizontal,vertical)
+      hp = horizontal_position(current_position) + horizontal
+      vp = vertical_position(current_position) + vertical
+      valid_move?(hp,vp) ? (horizontal_char(hp) + vp.to_s) : nil
+    end
+
     private
 
     def valid_move?(hp,vp)
@@ -24,6 +30,10 @@ module Chess
 
     def vertical_position(position)
       position[1].to_i
+    end
+
+    def horizontal_char(position)
+      CHAR_MAP.invert[position]
     end
 
   end

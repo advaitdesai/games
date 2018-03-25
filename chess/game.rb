@@ -1,5 +1,6 @@
 require_relative 'board'
 require_relative 'error/input_error'
+require_relative 'knight'
 
 
 module Chess
@@ -12,6 +13,12 @@ module Chess
       piece = piece.upcase rescue nil
       current_position = current_position.downcase rescue nil
       raise(InputError) unless valid_params?(piece,current_position)
+
+      case piece
+        when "KNIGHT"
+          Knight.new.moves(current_position,@board)
+      end
+
     end
 
     def self.valid_params?(piece,position)
