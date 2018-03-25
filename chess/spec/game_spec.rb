@@ -1,4 +1,7 @@
+begin
 require '../chess/game'
+rescue Exception
+end
 
 RSpec::Expectations.configuration.on_potential_false_positives = :nothing
 
@@ -134,12 +137,7 @@ describe Chess::Game do
           end
         end
       end
-
-
-
     end
-
-
   end
 
 end

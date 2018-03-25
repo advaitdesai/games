@@ -2,17 +2,16 @@ module Chess
   class Piece
 
     def moves(current_position,board)
-      raise("Invalid current position") unless board.valid_position?(current_position)
-      moves_list = []
-      rules.each do |rl|
+      rules.inject([]) do |collection, rl|
         position = board.neighbour_position(current_position,rl[0],rl[1])
-        moves_list << position if position
-      end
-      moves_list.join(',')
+        collection << position if position
+        collection
+      end.join(',')
     end
 
+    #Every subclass of Piece should implement this method
     def rules
-
+      raise('Implement rules method ')
     end
   end
 end
