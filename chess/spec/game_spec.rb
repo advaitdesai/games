@@ -79,6 +79,36 @@ describe Chess::Game do
       end
 
 
+      context "possible moves of QUEEN" do
+        it "Should return possible moves for d4 position" do
+          expect(Chess::Game.possible_moves("QUEEN","d4")).to eq("e4,d5,c4,d3,e5,e3,c5,c3")
+        end
+
+        it "Should return possible moves for c3 position" do
+          expect(Chess::Game.possible_moves("QUEEN","c3")).to eq("d3,c4,b3,c2,d4,d2,b4,b2")
+        end
+
+        context "Checking for 4 corners" do
+          it "Should return possible moves for a1 position" do
+            expect(Chess::Game.possible_moves("QUEEN","a1")).to eq("b1,a2,b2")
+          end
+
+          it "Should return possible moves for h8 position" do
+            expect(Chess::Game.possible_moves("QUEEN","h8")).to eq("g8,h7,g7")
+          end
+
+          it "Should return possible moves for a8 position" do
+            expect(Chess::Game.possible_moves("QUEEN","a8")).to eq("b8,a7,b7")
+          end
+
+          it "Should return possible moves for h1 position" do
+            expect(Chess::Game.possible_moves("QUEEN","h1")).to eq("h2,g1,g2")
+          end
+        end
+
+      end
+
+
     end
 
 

@@ -1,6 +1,7 @@
 require_relative 'board'
 require_relative 'error/input_error'
 require_relative 'knight'
+require_relative 'queen'
 
 
 module Chess
@@ -17,6 +18,8 @@ module Chess
       case piece
         when "KNIGHT"
           Knight.new.moves(current_position,@board)
+        when "QUEEN"
+          Queen.new.moves(current_position,@board)
       end
 
     end
