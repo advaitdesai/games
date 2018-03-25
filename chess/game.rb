@@ -2,6 +2,7 @@ require_relative 'board'
 require_relative 'error/input_error'
 require_relative 'knight'
 require_relative 'queen'
+require_relative 'rook'
 
 
 module Chess
@@ -20,6 +21,8 @@ module Chess
           Knight.new.moves(current_position,@board)
         when "QUEEN"
           Queen.new.moves(current_position,@board)
+        when "ROOK"
+          Rook.new.moves(current_position,@board)
       end
 
     end
